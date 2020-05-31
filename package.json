@@ -1,0 +1,22 @@
+{
+  "name": "only-view",
+  "version": "0.0.0",
+  "scripts": {
+    "setup-selenium": "webdriver-manager update  --versions.chrome 81.0.4044.92",
+    "start-selenium": "webdriver-manager start --standalone --detach --versions.chrome 81.0.4044.92",
+    "stop-selenium": "webdriver-manager shutdown",
+    "view": "codeceptjs run --steps --debug"
+  },
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "allure-commandline": "^2.9.0",
+    "webdriver-manager": "^12.1.7",
+    "codeceptjs": "^2.5.0",
+    "codelyzer": "^5.0.0",
+    "protractor": "~5.4.0",
+    "ts-node": "~7.0.0",
+    "tslint": "~5.15.0",
+    "typescript": "~3.4.3"
+  }
+}

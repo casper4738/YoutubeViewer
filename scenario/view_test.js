@@ -1,35 +1,78 @@
-Feature('View Login');
+Feature('specific');
 
-Scenario('View SOY Coffee Latte',  (I) => {
-  video(I, 'lWeG8LHVv_E', 'SOY Coffee Latte / Susu Kedelai rasa Kopi Favorite', 60)
+Scenario('TERONG BAKAR UNGU COBEK-COBEK',  (I) => {
+  video(I, 'v_XE_xTgs2c')
 });
 
-Scenario('View SUSU KEDELAI',  (I) => {
-  video(I, 'j4JcY9nYoy0', 'SUSU KEDELAI / SUSU KACANG KEDELAI / SOYBEAN MILK / SOY MILIK', 60)
+Scenario('COBEK-COBEK',  (I) => {
+  video(I, 's1HIqEfQbMI')
 });
 
-Scenario('View LEMON LIME WATER',  (I) => {
-  video(I, 'w5MnQ6-voo0', 'LEMON LIME WATER / Lemon Yakult', 60)
+Scenario('Ikan Mairo Goreng',  (I) => {
+  video(I, 'YXQBOffajHU')
 });
 
-Scenario('View Dalgona Coffee',  (I) => {
-  video(I, '_nRV3uO3X9w', 'Dalgona Coffee', 60)
+Scenario('MIE GORENG MAMA MERTUA',  (I) => {
+  video(I, 'ed4NERrShVc')
 });
 
-Scenario('View Sop Sayur',  (I) => {
-  video(I, 'HqFTDYyCzgg', 'Sop Sayur', 60)
+Scenario('SAMBAL GORENG KENTANG MAMA',  (I) => {
+  video(I, 'fE58PhbFbTc')
 });
 
-function video(I, vid, title, time=60) {
+Scenario('IKAN KAKAP FILLET REBUS PALING ENAK',  (I) => {
+  video(I, 'pmUdwCnK_h4')
+});
+
+Scenario('SUSU KEDELAI',  (I) => {
+  video(I, 'j4JcY9nYoy0')
+});
+
+Scenario('LEMON LIME WATER',  (I) => {
+  video(I, 'w5MnQ6-voo0')
+});
+
+Scenario('Dalgona Coffee',  (I) => {
+  video(I, '_nRV3uO3X9w')
+});
+
+Scenario('Sop Sayur',  (I) => {
+  video(I, 'HqFTDYyCzgg')
+});
+
+Scenario('KACANG MENTE CANTIK',  (I) => {
+  video(I, '70Qk10IHugg')
+});
+
+Scenario('CAH KANGKUNG BAWANG PUTIH',  (I) => {
+  video(I, '31lyZyCdaR8')
+});
+
+Scenario('IKAN KAKAP FILLET REBUS PALING ENAK',  (I) => {
+  video(I, 'pmUdwCnK_h4')
+});
+
+Scenario('PARAPE BANDENG MAMA',  (I) => {
+  video(I, 'XnhWuxlHaec')
+});
+
+
+
+function video(I, vid) {
     browser.waitForAngularEnabled(false);
 
     I.amOnPage('/watch?v='+vid);
 
-    I.wait(10)
+    I.wait(10);
 
-    I.seeInTitle(title);
+    I.waitForTextOrLocatorVisible('.ytp-large-play-button', 60);
 
-    I.click('.ytp-large-play-button');
+    let time = 300 + getRandomInt(60) + getRandomInt(30);
+    I.wait(time)
+    
+    I.wait(5 +  getRandomInt(10));
+}
 
-    I.wait(100)
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
 }

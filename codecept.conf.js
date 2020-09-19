@@ -4,6 +4,9 @@ exports.config = {
   tests: './scenario/*_test.js',
   output: './output',
   helpers: {
+    customHelper: {
+      require: './scenario/custom_helper.js',
+    },
     Protractor: {
       url: 'https://www.youtube.com',
       driver: 'hosted',
@@ -14,11 +17,10 @@ exports.config = {
       capabilities: {
         "chromeOptions": {
           "args": [
-            "--incognito",
+            // "--incognito",
             "--headless",
             "--disable-gpu",
-            "--disable-cache",
-            `--window-size=${constants.dimensions.desktop.width},${constants.dimensions.desktop.height}`
+            "--disable-cache"
           ]
         }
       }
@@ -27,12 +29,19 @@ exports.config = {
   include: {
     I: './scenario/custom_steps.js'
   },
+  
   bootstrap: null,
   mocha: {},
   name: 'scenario',
   plugins: {
     allure: {
       enabled: true
+    }
+  },
+  multiple: {
+    parallel: {
+      // Splits tests into 2 chunks
+      chunks: 2
     }
   }
 };

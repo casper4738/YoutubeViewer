@@ -1,0 +1,1 @@
+npm run stop-selenium && npm run setup-selenium   && npm run start-selenium
